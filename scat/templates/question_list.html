@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    {% for question in questions %}
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body bg-light">
+          <h5 class="card-title"><b>{{ question.game }} <br><br> Question Set #</b>{{ question.question_set }}</h5>
+          <p class="card-text">Answer the Questions!! </p>
+          <p class="card-text">View answers after Everyone submits!! </p>
+          <a href="{% url 'answerquestions' question.game question.question_set question.id %}" class="btn btn-primary">Answer Questions</a>
+          <a href="{% url 'answerlist' question.game question.question_set question.id %}" class="btn btn-primary">View Answers</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+  {% endblock %}

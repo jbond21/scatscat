@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    {% for answer in answers %}
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body bg-light">
+          <h5 class="card-title">{{ answer.team_name }}</h5>
+          <p class="card-text">Question 1 {{ answer.question1 }}? Answer: {{ answer.answer1 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 2 {{ answer.question2 }}? Answer: {{ answer.answer2 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 3 {{ answer.question3 }}? Answer: {{ answer.answer3 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 4 {{ answer.question4 }}? Answer: {{ answer.answer4 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 5 {{ answer.question5 }}? Answer: {{ answer.answer5 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 6 {{ answer.question6 }}? Answer: {{ answer.answer6 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 7 {{ answer.question7 }}? Answer: {{ answer.answer7 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 8 {{ answer.question8 }}? Answer: {{ answer.answer8 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 9 {{ answer.question9 }}? Answer: {{ answer.answer9 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 10 {{ answer.question10 }}? Answer: {{ answer.answer10 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 11 {{ answer.question11 }}? Answer: {{ answer.answer11 }} </p>
+          <div class="container-lg border border-dark"></div>
+          <p class="card-text">Question 12 {{ answer.question12 }}? Answer: {{ answer.answer12 }} </p>
+
+
+          
+          
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="col-sm-5"></div>
+    <a href="{% url 'questionlist' question.game_name question.id %}" class="btn btn-primary">Question List</a>
+    </div>
+</div>
+
+
+  {% endblock %}

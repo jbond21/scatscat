@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+
+
+
+<div class="row">
+    <div class="col-10 mx-auto col-md-4 my-2">
+        <div class="product_title text_center">
+            <h1 class="display-4">Scat Scat</h1>
+            <p class="lead">Grab Family and Friends for a fun and intense game of Scat Scat!</p>
+            <hr class="my-4">
+            <p>Start Scat Scat</p>
+            <a class="btn btn-primary btn-lg" href="{%  url 'creategame' %}" role="button">Create Game</a>
+            <a class="btn btn-primary btn-lg" href="{%  url 'gamelist' %}" role="button">Join Game</a>
+        </div>
+    </div>
+</div>
+      
+      
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    {% for game in games %}
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body bg-light">
+          <h5 class="card-title">{{ game.game_name }}</h5>
+          <p class="card-text">Question Creator Create Questions!!</p>
+          <p class="card-text">View Question List to Begin Answering</p>
+          <a href="{% url 'createquestions' game.game_name game.id %}" class="btn btn-primary">Create Questions</a>
+          <a href="{% url 'questionlist' game.game_name game.id %}" class="btn btn-primary">Question List</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+  {% endblock %}
