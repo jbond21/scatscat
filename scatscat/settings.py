@@ -25,7 +25,7 @@ SECRET_KEY = 'zbfbf_yzx5^j9&vd_bl@tx=49jz3=px&@!mp)d@9-)a5q(ec24'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.hotlistshowdown.com']
 
 
 # Application definition
