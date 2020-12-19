@@ -25,7 +25,7 @@ SECRET_KEY = 'zbfbf_yzx5^j9&vd_bl@tx=49jz3=px&@!mp)d@9-)a5q(ec24'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.hotlistshowdown.com', '127.0.0.1']
+ALLOWED_HOSTS = ['www.hotlistshowdown.com']
 
 
 # Application definition
@@ -126,3 +126,9 @@ STATICFILES = [os.path.join(BASE_DIR,  'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static','media')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    print('No local file must be on production')
