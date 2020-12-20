@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Game, Questions, Team
 from .forms import GameForm, QuestionForm, AnswerForm
+from django.db import IntegrityError
+from django.core.exceptions import ObjectDoesNotExist
+
 
 
 def home(request):
@@ -9,6 +12,10 @@ def home(request):
 
 
 def create_game(request):
+    all_names = Game.objects.all()
+    name = request.POST.get('game_name')
+    print(name)
+    print(all_names)
     form = GameForm(request.POST, request.FILES)
     if request.method == "POST":
         #print(request.POST)
@@ -33,7 +40,7 @@ def create_questions(request, game, id):
         form = QuestionForm(request.POST, request.FILES)
         if form.is_valid():
             question = form.save()
-            question.game = Game.objects.filter(game_name__exact=game).get()
+            question.game = Game.objects.filter(id__exact=id).get()
             question.save()
            
             return redirect('questionlist', game, id) 
@@ -55,7 +62,7 @@ def answer_questions(request, game, set, id):
         form = AnswerForm(request.POST, request.FILES)
         if form.is_valid():
             answer = form.save()
-            answer.set = Questions.objects.filter(question_set__exact=set).get()
+            answer.set = Questions.objects.filter(id__exact=id).get()
             answer.save()
            
             return redirect('questionlist', game, question_id.id) 

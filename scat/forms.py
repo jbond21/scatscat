@@ -9,6 +9,15 @@ class GameForm(ModelForm):
         model = Game
         fields = ['game_name']
 
+    def clean_game_name(self): # Validates the Computer Name Field
+	    game_name = self.cleaned_data.get('game_name')
+	    if (game_name == ""):
+		    raise forms.ValidationError('This field cannot be left blank')
+	    for instance in Game.objects.all():
+		    if instance.game_name == game_name:
+			    raise forms.ValidationError(game_name + ' is already in use')
+	    return game_name
+
 
 class QuestionForm(ModelForm):
     
