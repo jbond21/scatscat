@@ -52,7 +52,7 @@ def question_list(request, game, id):
     return render(request, 'question_list.html', {'questions':questions})
 
 def answer_questions(request, game, set, id):
-    questions = Questions.objects.filter(question_set=set)
+    questions = Questions.objects.filter(id__exact=id)
     question_id = Game.objects.get(game_name=game)
     print(question_id.id)
 
